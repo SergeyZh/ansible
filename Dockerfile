@@ -10,6 +10,7 @@ RUN pip install -U pysphere boto docker-py awscli
 RUN apk --no-cache add --virtual build-dependencies gcc python-dev libffi-dev linux-headers musl-dev openssl-dev && \
     pip install git+git://github.com/ansible/ansible.git@${ansible_version} && \
     pip install mysql-python && \
+    pip install boto3 && \
     apk del build-dependencies
 
 ADD https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py /usr/local/lib/python2.7/site-packages/ansible/plugins/inventory/
